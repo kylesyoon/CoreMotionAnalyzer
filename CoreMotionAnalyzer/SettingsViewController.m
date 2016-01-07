@@ -7,7 +7,7 @@
 //
 
 #import "SettingsViewController.h"
-#import <DNSCastroSegmentedControl.h>
+#import <DNSCastroSegmentedControl/DNSCastroSegmentedControl.h>
 #import "ViewController.h"
 
 @interface SettingsViewController ()

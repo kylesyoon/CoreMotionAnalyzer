@@ -7,8 +7,9 @@
 //
 
 #import "GraphViewController.h"
+#import <CorePlot/CorePlot.h>
 
-@interface GraphViewController () <CPTPlotDelegate>
+@interface GraphViewController () <CPTPlotDelegate, CPTPlotDataSource>
 @property (weak, nonatomic) IBOutlet UIView *graphArea;
 @property (weak, nonatomic) IBOutlet UIButton *userAccelerationButton;
 @property (weak, nonatomic) IBOutlet UIButton *gravityButton;
@@ -160,10 +161,10 @@
                                  gravXPlot, gravYPlot, gravZPlot,
                                  rotXPlot, rotYPlot, rotZPlot]];
     CPTMutablePlotRange *xRange = [plotSpace.xRange mutableCopy];
-    [xRange expandRangeByFactor:CPTDecimalFromCGFloat(1.1f)];
+    [xRange expandRangeByFactor:@1.1];
     plotSpace.xRange = xRange;
     CPTMutablePlotRange *yRange = [plotSpace.yRange mutableCopy];
-    [yRange expandRangeByFactor:CPTDecimalFromCGFloat(1.2f)];
+    [yRange expandRangeByFactor:@1.2f];
     plotSpace.yRange = yRange;
     
     // Create styles and symbols
@@ -316,7 +317,7 @@
     for (NSDictionary *motionData in self.data) {
         CGFloat time = [motionData[@"time"] floatValue];
         CPTAxisLabel *label = [[CPTAxisLabel alloc] initWithText:[NSString stringWithFormat:@"%.2f", time] textStyle:x.labelTextStyle];
-        label.tickLocation = CPTDecimalFromCGFloat(time);
+        label.tickLocation = @(time);
         label.offset = x.majorTickLength;
         if (label) {
             [xLabels addObject:label];
@@ -346,7 +347,7 @@
     for (int i = -yMax; i <= yMax; i++) {
         CGFloat location = i / 10.0;
         CPTAxisLabel *label = [[CPTAxisLabel alloc] initWithText:[NSString stringWithFormat:@"%.1f", location] textStyle:y.labelTextStyle];
-        label.tickLocation = CPTDecimalFromCGFloat(location);
+        label.tickLocation = @(location);
         if (i % 5 == 0) {
             label.offset = -y.majorTickLength - y.labelOffset;
             [yMajorLocations addObject:[NSNumber numberWithFloat:location]];

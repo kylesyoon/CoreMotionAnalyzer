@@ -1,0 +1,13 @@
+PODS:
+  - CorePlot (2.0)
+  - DNSCastroSegmentedControl (1.4.0)
+
+DEPENDENCIES:
+  - CorePlot (~> 2.0)
+  - DNSCastroSegmentedControl (~> 1.4)
+
+SPEC CHECKSUMS:
+  CorePlot: b7f422ad363f2b0e48152471d6da45ce232eb8c6
+  DNSCastroSegmentedControl: 1fbc82813718a96b858242d44e2c1f2fb78094cf
+
+COCOAPODS: 0.39.0

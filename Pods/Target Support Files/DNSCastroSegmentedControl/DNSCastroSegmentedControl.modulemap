@@ -1,0 +1,6 @@
+framework module DNSCastroSegmentedControl {
+  umbrella header "DNSCastroSegmentedControl-umbrella.h"
+
+  export *
+  module * { export * }
+}

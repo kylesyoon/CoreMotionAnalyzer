@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
-#import <CorePlot-CocoaTouch.h>
 
-@interface GraphViewController : UIViewController <CPTPlotDataSource>
+@class CPTGraphHostingView;
+
+@interface GraphViewController : UIViewController
 
 @property (strong, nonatomic) NSArray *data;
 @property (strong, nonatomic) CPTGraphHostingView *hostView;

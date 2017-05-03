@@ -6,12 +6,14 @@
 //  Copyright (c) 2015 Kyle Yoon. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "LogViewController.h"
 #import <CoreMotion/CoreMotion.h>
 #import "GraphViewController.h"
 #import "SettingsViewController.h"
 
-@interface ViewController () <UITableViewDataSource, UITableViewDelegate, SettingsDelegate>
+static NSString * const kGraphViewControllerSegueIdentifier = @"graphViewControllerSegueIdentifier";
+
+@interface LogViewController () <UITableViewDataSource, UITableViewDelegate, SettingsDelegate>
 
 @property (strong, nonatomic) NSMutableArray *dataArray;
 @property (strong, nonatomic) CMMotionManager *motionManager;
@@ -22,7 +24,7 @@
 
 @end
 
-@implementation ViewController
+@implementation LogViewController
 
 - (void)viewDidLoad
 {
@@ -37,7 +39,6 @@
     self.isUserAccelerationOn = YES;
     self.isGravityOn = YES;
     self.isRotationRateOn = YES;
-
 }
 
 - (CMDeviceMotionHandler)analyzeMotionData
@@ -122,7 +123,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"plotSegue"]) {
+    if ([segue.identifier isEqualToString:kGraphViewControllerSegueIdentifier]) {
         GraphViewController *graphVC = segue.destinationViewController;
         NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"time" ascending:YES];
         self.dataToGraph = [[[NSArray arrayWithArray:self.dataToGraph] sortedArrayUsingDescriptors:@[descriptor]] mutableCopy];
@@ -136,8 +137,7 @@
     }
 }
 
-- (NSUInteger)supportedInterfaceOrientations
-{
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskPortrait;
 }
 
@@ -152,8 +152,7 @@
 
 #pragma mark - IBActions
 
-- (IBAction)pressedStartStopButton:(UIButton *)button
-{
+- (IBAction)didTapStartStopButton:(UIButton *)button {
     if (self.motionManager.isDeviceMotionActive) {
         [self.motionManager stopDeviceMotionUpdates];
         [button setTitle:@"Start" forState:UIControlStateNormal];
@@ -167,11 +166,9 @@
             // Error handling
         }
     }
-    
 }
 
-- (IBAction)pressedSelectAll:(UIButton *)button
-{
+- (IBAction)didTapSelectAllButton:(UIButton *)button {
     if (self.selectedAll) {
         for (int i = 0; i < self.dataArray.count; i++) {
             [self.tableView deselectRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0] animated:YES];
@@ -189,8 +186,7 @@
     }
 }
 
-- (IBAction)pressedClear:(id)sender
-{
+- (IBAction)didTapClearButton:(id)sender {
     [self.dataArray removeAllObjects];
     [self.dataToGraph removeAllObjects];
     [self.tableView reloadData];

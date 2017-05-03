@@ -9,14 +9,14 @@
 /* Begin PBXBuildFile section */
 		51700B1A1ACDE2FC0027AD9D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 51700B191ACDE2FC0027AD9D /* main.m */; };
 		51700B1D1ACDE2FC0027AD9D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 51700B1C1ACDE2FC0027AD9D /* AppDelegate.m */; };
-		51700B201ACDE2FC0027AD9D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51700B1F1ACDE2FC0027AD9D /* ViewController.m */; };
+		51700B201ACDE2FC0027AD9D /* LogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51700B1F1ACDE2FC0027AD9D /* LogViewController.m */; };
 		51700B231ACDE2FC0027AD9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51700B211ACDE2FC0027AD9D /* Main.storyboard */; };
 		51700B251ACDE2FC0027AD9D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51700B241ACDE2FC0027AD9D /* Images.xcassets */; };
 		51700B281ACDE2FC0027AD9D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51700B261ACDE2FC0027AD9D /* LaunchScreen.xib */; };
 		51700B341ACDE2FC0027AD9D /* CoreMotionAnalyzerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 51700B331ACDE2FC0027AD9D /* CoreMotionAnalyzerTests.m */; };
 		51700B421ACDEC3C0027AD9D /* GraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51700B411ACDEC3C0027AD9D /* GraphViewController.m */; };
 		51700B4B1ACF07B30027AD9D /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51700B4A1ACF07B30027AD9D /* SettingsViewController.m */; };
-		F8B9E837462A8D6B4D36189F /* Pods_CoreMotionAnalyzer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 850FB0DEEF3575A29297AAC6 /* Pods_CoreMotionAnalyzer.framework */; };
+		EC60A5660100E08C8654077E /* Pods_CoreMotionAnalyzer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D50681B592D6006947C0E24 /* Pods_CoreMotionAnalyzer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,13 +30,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4BA374DF0F5FD9B8D50E25D9 /* Pods-CoreMotionAnalyzer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreMotionAnalyzer.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoreMotionAnalyzer/Pods-CoreMotionAnalyzer.release.xcconfig"; sourceTree = "<group>"; };
 		51700B141ACDE2FC0027AD9D /* CoreMotionAnalyzer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreMotionAnalyzer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51700B181ACDE2FC0027AD9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51700B191ACDE2FC0027AD9D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		51700B1B1ACDE2FC0027AD9D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		51700B1C1ACDE2FC0027AD9D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		51700B1E1ACDE2FC0027AD9D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		51700B1F1ACDE2FC0027AD9D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		51700B1E1ACDE2FC0027AD9D /* LogViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogViewController.h; sourceTree = "<group>"; };
+		51700B1F1ACDE2FC0027AD9D /* LogViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LogViewController.m; sourceTree = "<group>"; };
 		51700B221ACDE2FC0027AD9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		51700B241ACDE2FC0027AD9D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		51700B271ACDE2FC0027AD9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -47,9 +48,8 @@
 		51700B411ACDEC3C0027AD9D /* GraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphViewController.m; sourceTree = "<group>"; };
 		51700B491ACF07B30027AD9D /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		51700B4A1ACF07B30027AD9D /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
-		850FB0DEEF3575A29297AAC6 /* Pods_CoreMotionAnalyzer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreMotionAnalyzer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD1AB608C9D539567377BEA7 /* Pods-CoreMotionAnalyzer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreMotionAnalyzer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoreMotionAnalyzer/Pods-CoreMotionAnalyzer.debug.xcconfig"; sourceTree = "<group>"; };
-		E106884AEB6100A8846F0C7A /* Pods-CoreMotionAnalyzer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreMotionAnalyzer.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoreMotionAnalyzer/Pods-CoreMotionAnalyzer.release.xcconfig"; sourceTree = "<group>"; };
+		5917E31A8A8DD14BE2694DD4 /* Pods-CoreMotionAnalyzer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreMotionAnalyzer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoreMotionAnalyzer/Pods-CoreMotionAnalyzer.debug.xcconfig"; sourceTree = "<group>"; };
+		5D50681B592D6006947C0E24 /* Pods_CoreMotionAnalyzer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreMotionAnalyzer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8B9E837462A8D6B4D36189F /* Pods_CoreMotionAnalyzer.framework in Frameworks */,
+				EC60A5660100E08C8654077E /* Pods_CoreMotionAnalyzer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,10 +71,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4A26F606D069A5121CE28C9E /* Frameworks */ = {
+		12EAC1783A168E2DABF4E12F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				850FB0DEEF3575A29297AAC6 /* Pods_CoreMotionAnalyzer.framework */,
+				5D50681B592D6006947C0E24 /* Pods_CoreMotionAnalyzer.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -85,8 +85,8 @@
 				51700B161ACDE2FC0027AD9D /* CoreMotionAnalyzer */,
 				51700B301ACDE2FC0027AD9D /* CoreMotionAnalyzerTests */,
 				51700B151ACDE2FC0027AD9D /* Products */,
-				779BF8B6033D387328010135 /* Pods */,
-				4A26F606D069A5121CE28C9E /* Frameworks */,
+				ABF5073896737051B1DC6F2E /* Pods */,
+				12EAC1783A168E2DABF4E12F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,8 +104,8 @@
 			children = (
 				51700B1B1ACDE2FC0027AD9D /* AppDelegate.h */,
 				51700B1C1ACDE2FC0027AD9D /* AppDelegate.m */,
-				51700B1E1ACDE2FC0027AD9D /* ViewController.h */,
-				51700B1F1ACDE2FC0027AD9D /* ViewController.m */,
+				51700B1E1ACDE2FC0027AD9D /* LogViewController.h */,
+				51700B1F1ACDE2FC0027AD9D /* LogViewController.m */,
 				51700B401ACDEC3C0027AD9D /* GraphViewController.h */,
 				51700B411ACDEC3C0027AD9D /* GraphViewController.m */,
 				51700B491ACF07B30027AD9D /* SettingsViewController.h */,
@@ -144,11 +144,11 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		779BF8B6033D387328010135 /* Pods */ = {
+		ABF5073896737051B1DC6F2E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				BD1AB608C9D539567377BEA7 /* Pods-CoreMotionAnalyzer.debug.xcconfig */,
-				E106884AEB6100A8846F0C7A /* Pods-CoreMotionAnalyzer.release.xcconfig */,
+				5917E31A8A8DD14BE2694DD4 /* Pods-CoreMotionAnalyzer.debug.xcconfig */,
+				4BA374DF0F5FD9B8D50E25D9 /* Pods-CoreMotionAnalyzer.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -160,12 +160,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 51700B371ACDE2FC0027AD9D /* Build configuration list for PBXNativeTarget "CoreMotionAnalyzer" */;
 			buildPhases = (
-				094C85EDFBE1B8CC301EE284 /* Check Pods Manifest.lock */,
+				9A4D8CED24D8006D012EBC90 /* [CP] Check Pods Manifest.lock */,
 				51700B101ACDE2FC0027AD9D /* Sources */,
 				51700B111ACDE2FC0027AD9D /* Frameworks */,
 				51700B121ACDE2FC0027AD9D /* Resources */,
-				1E267BD4BD25457AC5118C50 /* Copy Pods Resources */,
-				A7E8F673DA86BE60085F74B4 /* Embed Pods Frameworks */,
+				B37CC2931347DC361302BD4E /* [CP] Embed Pods Frameworks */,
+				D68B628D0285D7695C52BCD4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -252,49 +252,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		094C85EDFBE1B8CC301EE284 /* Check Pods Manifest.lock */ = {
+		9A4D8CED24D8006D012EBC90 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		1E267BD4BD25457AC5118C50 /* Copy Pods Resources */ = {
+		B37CC2931347DC361302BD4E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoreMotionAnalyzer/Pods-CoreMotionAnalyzer-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A7E8F673DA86BE60085F74B4 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoreMotionAnalyzer/Pods-CoreMotionAnalyzer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D68B628D0285D7695C52BCD4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoreMotionAnalyzer/Pods-CoreMotionAnalyzer-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -304,7 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51700B201ACDE2FC0027AD9D /* ViewController.m in Sources */,
+				51700B201ACDE2FC0027AD9D /* LogViewController.m in Sources */,
 				51700B421ACDEC3C0027AD9D /* GraphViewController.m in Sources */,
 				51700B4B1ACF07B30027AD9D /* SettingsViewController.m in Sources */,
 				51700B1D1ACDE2FC0027AD9D /* AppDelegate.m in Sources */,
@@ -430,7 +430,7 @@
 		};
 		51700B381ACDE2FC0027AD9D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BD1AB608C9D539567377BEA7 /* Pods-CoreMotionAnalyzer.debug.xcconfig */;
+			baseConfigurationReference = 5917E31A8A8DD14BE2694DD4 /* Pods-CoreMotionAnalyzer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CoreMotionAnalyzer/Info.plist;
@@ -441,7 +441,7 @@
 		};
 		51700B391ACDE2FC0027AD9D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E106884AEB6100A8846F0C7A /* Pods-CoreMotionAnalyzer.release.xcconfig */;
+			baseConfigurationReference = 4BA374DF0F5FD9B8D50E25D9 /* Pods-CoreMotionAnalyzer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CoreMotionAnalyzer/Info.plist;

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '47E7B2ED1894D4A567DB07A5'
+               BlueprintIdentifier = 'FB43E19E007299E25F42C054A992046D'
                BlueprintName = 'DNSCastroSegmentedControl'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'DNSCastroSegmentedControl.framework'>

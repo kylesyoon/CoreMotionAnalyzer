@@ -434,9 +434,7 @@
     [self.graph.plotAreaFrame.plotArea addAnnotation:annotation];
 }
 
-#pragma mark - Rotation
-
-- (NSUInteger)supportedInterfaceOrientations
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskLandscape;
 }

@@ -8,7 +8,7 @@
 
 #import "SettingsViewController.h"
 #import <DNSCastroSegmentedControl/DNSCastroSegmentedControl.h>
-#import "LogViewController.h"
+#import "KSYMotionViewController.h"
 
 @interface SettingsViewController ()
 

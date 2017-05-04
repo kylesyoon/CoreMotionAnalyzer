@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LogViewController : UIViewController
+@interface KSYMotionViewController : UIViewController
 
 @property (nonatomic) BOOL isUserAccelerationOn;
 @property (nonatomic) BOOL isGravityOn;

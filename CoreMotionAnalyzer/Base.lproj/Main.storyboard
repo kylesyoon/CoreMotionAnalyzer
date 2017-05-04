@@ -25,9 +25,9 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hUt-nu-ICC">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
-                                    <barButtonItem title="Select" id="Qwo-kt-T7e">
+                                    <barButtonItem title="Select All" id="Qwo-kt-T7e">
                                         <connections>
-                                            <action selector="didTapSelectButton:" destination="BYZ-38-t0r" id="Lhw-zC-mCj"/>
+                                            <action selector="didTapSelectAllButton:" destination="BYZ-38-t0r" id="E71-SH-Ezn"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="7xJ-O0-2rZ"/>

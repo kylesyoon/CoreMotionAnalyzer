@@ -56,8 +56,7 @@ static CGFloat const kEstimatedRowHeight = 180.0;
     self.isRotationRateOn = YES;
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:kGraphViewControllerSegueIdentifier]) {
         GraphViewController *graphVC = segue.destinationViewController;
         NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"time" ascending:YES];
@@ -86,8 +85,8 @@ static CGFloat const kEstimatedRowHeight = 180.0;
 
 - (IBAction)didTapStartStopButton:(UIBarButtonItem *)button {
     if (self.motionManager.isDeviceMotionActive) {
-        [self.motionManager stopDeviceMotionUpdates];
         button.title = NSLocalizedString(@"Start", @"Stop title");
+        [self.motionManager stopDeviceMotionUpdates];
     }
     else {
         if (self.motionManager.deviceMotionAvailable) {
@@ -100,12 +99,28 @@ static CGFloat const kEstimatedRowHeight = 180.0;
         }
     }
 }
-- (IBAction)didTapSelectButton:(UIBarButtonItem *)sender {
-    // TODO: Go to selection mode
+
+- (IBAction)didTapSelectAllButton:(UIBarButtonItem *)button {
+    if (self.tableView.indexPathsForSelectedRows.count < [self.motionDataSource numberOfRowsForSection:0]) {
+        for (int i = 0; i< [self.motionDataSource numberOfRowsForSection:0]; i++) {
+            [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]
+                                        animated:true
+                                  scrollPosition:UITableViewScrollPositionNone];
+        }
+        button.title = NSLocalizedString(@"Deselect All", @"Deselect All button title");
+    }
+    else {
+        for (int i = 0; i< [self.motionDataSource numberOfRowsForSection:0]; i++) {
+            [self.tableView deselectRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]
+                                          animated:true];
+        }
+        button.title = NSLocalizedString(@"Select All", @"Select All button title");
+    }
 }
 
 - (IBAction)didTapClearButton:(id)sender {
     self.motionData = @[];
+    self.motionDataSource = [KSYMotionDataSource new];
     [self.tableView reloadData];
 }
 
@@ -126,19 +141,6 @@ static CGFloat const kEstimatedRowHeight = 180.0;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.motionDataSource numberOfRowsForSection:section];
-}
-
-#pragma mark - UITableViewDelegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    //    [self.dataToGraph addObject:[self.dataArray objectAtIndex:indexPath.row]];
-}
-
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    //    if ([self.dataToGraph containsObject:[self.dataArray objectAtIndex:indexPath.row]]) {
-    //        [self.dataToGraph removeObject:[self.dataArray objectAtIndex:indexPath.row]];
-    //    }
 }
 
 #pragma Settings Delegate

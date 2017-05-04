@@ -10,6 +10,8 @@
 #import <CoreMotion/CoreMotion.h>
 #import "KSYMotionData.h"
 
+static NSString * const kXYZFormat = @"X: %.3f  Y: %.3f  Z: %.3f";
+
 @interface KSYMotionDataTableViewCell ()
 
 @property (strong, nonatomic) IBOutlet UIStackView *accelerationStackView;
@@ -25,17 +27,17 @@
 
 - (void)configureWithMotionData:(KSYMotionData *)motionData {
     CMDeviceMotion *deviceMotion = motionData.deviceMotion;
-    NSString *accString = [NSString stringWithFormat:@"X: %.3f, Y: %.3f, Z: %.3f",
+    NSString *accString = [NSString stringWithFormat:kXYZFormat,
                            deviceMotion.userAcceleration.x,
                            deviceMotion.userAcceleration.y,
                            deviceMotion.userAcceleration.z];
     self.accelerationLabel.text = accString;
-    NSString *gravString = [NSString stringWithFormat:@"X: %.3f, Y: %.3f, Z: %.3f",
+    NSString *gravString = [NSString stringWithFormat:kXYZFormat,
                             deviceMotion.gravity.x,
                             deviceMotion.gravity.y,
                             deviceMotion.gravity.z];
     self.gravityLabel.text = gravString;
-    NSString *rotationString = [NSString stringWithFormat:@"X: %.3f, Y: %.3f, Z: %.3f",
+    NSString *rotationString = [NSString stringWithFormat:kXYZFormat,
                                 deviceMotion.rotationRate.x,
                                 deviceMotion.rotationRate.y,
                                 deviceMotion.rotationRate.z];

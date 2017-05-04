@@ -13,6 +13,7 @@
 #import "KSYMotionDataSource.h"
 #import "KSYMotionData.h"
 #import "KSYMotionDataTableViewCell.h"
+#import "KSYMotionTimestampHeaderView.h"
 
 static NSString * const kGraphViewControllerSegueIdentifier = @"graphViewControllerSegueIdentifier";
 static CGFloat const kMotionUpdateInterval = 0.05;
@@ -46,6 +47,8 @@ static CGFloat const kEstimatedRowHeight = 180.0;
     
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([KSYMotionDataTableViewCell class]) bundle:nil]
          forCellReuseIdentifier:NSStringFromClass([KSYMotionDataTableViewCell class])];
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([KSYMotionTimestampHeaderView class]) bundle:nil]
+forHeaderFooterViewReuseIdentifier:NSStringFromClass([KSYMotionTimestampHeaderView class])];
     self.tableView.estimatedRowHeight = kEstimatedRowHeight;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.dataSource = self;
@@ -101,17 +104,17 @@ static CGFloat const kEstimatedRowHeight = 180.0;
 }
 
 - (IBAction)didTapSelectAllButton:(UIBarButtonItem *)button {
-    if (self.tableView.indexPathsForSelectedRows.count < [self.motionDataSource numberOfRowsForSection:0]) {
-        for (int i = 0; i< [self.motionDataSource numberOfRowsForSection:0]; i++) {
-            [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]
+    if (self.tableView.indexPathsForSelectedRows.count < [self.motionDataSource numberOfSections]) {
+        for (int i = 0; i < [self.motionDataSource numberOfSections]; i++) {
+            [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:i]
                                         animated:true
                                   scrollPosition:UITableViewScrollPositionNone];
         }
         button.title = NSLocalizedString(@"Deselect All", @"Deselect All button title");
     }
     else {
-        for (int i = 0; i< [self.motionDataSource numberOfRowsForSection:0]; i++) {
-            [self.tableView deselectRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]
+        for (int i = 0; i < [self.motionDataSource numberOfSections]; i++) {
+            [self.tableView deselectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:i]
                                           animated:true];
         }
         button.title = NSLocalizedString(@"Select All", @"Select All button title");
@@ -134,13 +137,29 @@ static CGFloat const kEstimatedRowHeight = 180.0;
     KSYMotionDataTableViewCell *cell = [tableView
                                         dequeueReusableCellWithIdentifier:NSStringFromClass([KSYMotionDataTableViewCell class])
                                         forIndexPath:indexPath];
-    KSYMotionData *motionData = [self.motionDataSource dataForCellAtIndexPath:indexPath];
+    KSYMotionData *motionData = [self.motionDataSource dataForIndexPath:indexPath];
     [cell configureWithMotionData:motionData];
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.motionDataSource numberOfRowsForSection:section];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return [self.motionDataSource numberOfSections];
+}
+
+#pragma mark - UITableViewDelegate
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    KSYMotionTimestampHeaderView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass([KSYMotionTimestampHeaderView class])];
+    headerView.timestampLabel.text = [self.motionDataSource titleForHeaderForSection:section];
+    return headerView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 38;
 }
 
 #pragma Settings Delegate

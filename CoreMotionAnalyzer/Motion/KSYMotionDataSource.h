@@ -14,7 +14,9 @@
 
 - (void)appendMotionData:(KSYMotionData *)motionData;
 
-- (KSYMotionData *)dataForCellAtIndexPath:(NSIndexPath *)indexPath;
+- (KSYMotionData *)dataForIndexPath:(NSIndexPath *)indexPath;
+
+- (NSString *)titleForHeaderForSection:(NSInteger)section;
 
 - (NSInteger)numberOfSections;
 

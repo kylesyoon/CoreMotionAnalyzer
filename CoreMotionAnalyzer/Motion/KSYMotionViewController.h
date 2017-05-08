@@ -10,9 +10,6 @@
 
 @interface KSYMotionViewController : UIViewController
 
-@property (nonatomic) BOOL isUserAccelerationOn;
-@property (nonatomic) BOOL isGravityOn;
-@property (nonatomic) BOOL isRotationRateOn;
 
 @end
 

@@ -10,10 +10,11 @@
 #import <Foundation/Foundation.h>
 
 @class CPTGraphHostingView;
+@class KSYMotionData;
 
-@interface GraphViewController : UIViewController
+@interface KSYGraphViewController : UIViewController
 
-@property (strong, nonatomic) NSArray *data;
+@property (strong, nonatomic) NSArray <KSYMotionData *> *data;
 @property (strong, nonatomic) CPTGraphHostingView *hostView;
 
 @end

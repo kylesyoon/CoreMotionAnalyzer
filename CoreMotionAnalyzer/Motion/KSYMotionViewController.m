@@ -8,29 +8,31 @@
 
 #import "KSYMotionViewController.h"
 #import <CoreMotion/CoreMotion.h>
-#import "GraphViewController.h"
-#import "SettingsViewController.h"
+#import "KSYGraphViewController.h"
+#import "KSYSettingsViewController.h"
 #import "KSYMotionDataSource.h"
 #import "KSYMotionData.h"
 #import "KSYMotionDataTableViewCell.h"
 #import "KSYMotionTimestampHeaderView.h"
+#import "KSYUserSettings.h"
 
 static NSString * const kGraphViewControllerSegueIdentifier = @"graphViewControllerSegueIdentifier";
 static CGFloat const kMotionUpdateInterval = 0.05;
 static CGFloat const kEstimatedRowHeight = 180.0;
 
-@interface KSYMotionViewController () <UITableViewDataSource, UITableViewDelegate, SettingsDelegate>
+@interface KSYMotionViewController () <UITableViewDataSource, UITableViewDelegate, KSYSettingsViewControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic, strong) CMMotionManager *motionManager;
 @property (nonatomic, copy) NSArray <KSYMotionData *> *motionData;
-@property (strong, nonatomic) KSYMotionDataSource *motionDataSource;
-
-@property (strong, nonatomic) NSMutableArray *dataArray;
+@property (nonatomic, strong) KSYMotionDataSource *motionDataSource;
 
 
-@property (strong, nonatomic) NSMutableArray *dataToGraph;
+@property (nonatomic, strong) KSYUserSettings *settings;
+@property (nonatomic, assign, getter=isUserAccelerationOn) BOOL userAccelerationOn;
+@property (nonatomic, assign, getter=isGravityOn) BOOL gravityOn;
+@property (nonatomic, assign, getter=isRotationOn) BOOL rotationOn;
 
 @end
 
@@ -54,23 +56,21 @@ forHeaderFooterViewReuseIdentifier:NSStringFromClass([KSYMotionTimestampHeaderVi
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
-    self.isUserAccelerationOn = YES;
-    self.isGravityOn = YES;
-    self.isRotationRateOn = YES;
+    self.settings = [[KSYUserSettings alloc] init]; // defaults everything to YES
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:kGraphViewControllerSegueIdentifier]) {
-        GraphViewController *graphVC = segue.destinationViewController;
-        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"time" ascending:YES];
-        self.dataToGraph = [[[NSArray arrayWithArray:self.dataToGraph] sortedArrayUsingDescriptors:@[descriptor]] mutableCopy];
-        graphVC.data = [self.dataToGraph copy];
-    } else {
-        SettingsViewController *settingsVC = segue.destinationViewController;
-        settingsVC.isUserAccelerationOn = self.isUserAccelerationOn;
-        settingsVC.isRotationRateOn = self.isRotationRateOn;
-        settingsVC.isGravityOn = self.isGravityOn;
-        settingsVC.delegate = self;
+        KSYGraphViewController *graphViewController = segue.destinationViewController;
+        NSMutableArray *selectedData = [NSMutableArray array];
+        for (NSIndexPath *indexPath in self.tableView.indexPathsForSelectedRows) {
+            KSYMotionData *motionData = [self.motionDataSource dataForIndexPath:indexPath];
+            [selectedData addObject:motionData];
+        }
+        [selectedData sortUsingComparator:^NSComparisonResult(KSYMotionData *motionDataA, KSYMotionData *motionDataB) {
+            return [motionDataA.timestamp compare:motionDataB.timestamp];
+        }];
+        graphViewController.data = [selectedData copy];
     }
 }
 
@@ -127,6 +127,15 @@ forHeaderFooterViewReuseIdentifier:NSStringFromClass([KSYMotionTimestampHeaderVi
     [self.tableView reloadData];
 }
 
+- (IBAction)didTapSettingsButton:(id)sender {
+    KSYSettingsViewController *settingsViewController = [KSYSettingsViewController settingsViewControllerWithUserSettings:self.settings];
+    settingsViewController.delegate = self;
+    UINavigationController *settingsNav = [[UINavigationController alloc] initWithRootViewController:settingsViewController];
+    [self presentViewController:settingsNav
+                       animated:YES
+                     completion:nil];
+}
+
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskPortrait;
 }
@@ -159,17 +168,14 @@ forHeaderFooterViewReuseIdentifier:NSStringFromClass([KSYMotionTimestampHeaderVi
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 38;
+    return KSYMotionTimestampHeaderView.headerViewHeight;
 }
 
-#pragma Settings Delegate
+#pragma mark - KSYSettingsViewControllerDelegate
 
-- (void)updateDataSettingsForUserAcceleration:(BOOL)isAcceleration gravity:(BOOL)isGravity rotationRate:(BOOL)isRotationRate
-{
-    self.isUserAccelerationOn = isAcceleration;
-    self.isGravityOn = isGravity;
-    self.isRotationRateOn = isRotationRate;
+- (void)settingsViewController:(KSYSettingsViewController *)settingsViewController userDidTapDoneWithSettings:(KSYUserSettings *)userSettings {
+    [self dismissViewControllerAnimated:YES completion:nil];
+    self.settings = userSettings;
 }
-
 
 @end

@@ -10,6 +10,10 @@
 
 @implementation KSYMotionTimestampHeaderView
 
++ (CGFloat)headerViewHeight {
+    return 38.0;
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.contentView.backgroundColor = [UIColor lightGrayColor];

@@ -6,10 +6,11 @@
 //  Copyright (c) 2015 Kyle Yoon. All rights reserved.
 //
 
-#import "GraphViewController.h"
+#import "KSYGraphViewController.h"
 #import <CorePlot/CorePlot.h>
+#import "KSYMotionData.h"
 
-@interface GraphViewController () <CPTPlotDelegate, CPTPlotDataSource>
+@interface KSYGraphViewController () <CPTPlotDelegate, CPTPlotDataSource>
 @property (weak, nonatomic) IBOutlet UIView *graphArea;
 @property (weak, nonatomic) IBOutlet UIButton *userAccelerationButton;
 @property (weak, nonatomic) IBOutlet UIButton *gravityButton;
@@ -23,7 +24,7 @@
 
 @end
 
-@implementation GraphViewController
+@implementation KSYGraphViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -54,8 +55,8 @@
 {
     [self configureHost];
     [self configureGraph];
-    [self configurePlots];
-    [self configureAxes];
+//    [self configurePlots];
+//    [self configureAxes];
 }
 
 - (void)configureHost
@@ -72,10 +73,10 @@
     [self.graph applyTheme:[CPTTheme themeNamed:kCPTPlainWhiteTheme]];
     self.hostView.hostedGraph = self.graph;
     // 2. Set graph title.
-    NSDictionary *firstObject = self.data.firstObject;
-    CGFloat startTime = [firstObject[@"time"] floatValue];
-    NSDictionary *lastObject = self.data.lastObject;
-    CGFloat endTime = [lastObject[@"time"] floatValue];
+    KSYMotionData *firstMotionData = self.data.firstObject;
+    CGFloat startTime = 0.0;
+    KSYMotionData *lastMotionData = self.data.lastObject;
+    CGFloat endTime = [lastMotionData.timestamp timeIntervalSinceDate:firstMotionData.timestamp];
     NSString *title = [NSString stringWithFormat:@"Motion Data for Time Frame %.2f - %.2f", startTime, endTime];
     self.graph.title = title;
     // 3. Create and set text style.

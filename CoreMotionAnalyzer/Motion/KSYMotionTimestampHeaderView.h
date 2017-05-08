@@ -12,4 +12,6 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *timestampLabel;
 
++ (CGFloat)headerViewHeight;
+
 @end

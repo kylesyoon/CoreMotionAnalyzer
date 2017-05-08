@@ -9,11 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>DNSCastroSegmentedControl.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-CoreMotionAnalyzer.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +17,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>5AF62A1FB8ADBF1F5775BDB430B825AA</key>
+		<key>9B589EF10F6212D3CE43DE75F77EC921</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>DE8C7C227ACE26864DC8DA02CCA66BAA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FB43E19E007299E25F42C054A992046D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

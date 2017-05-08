@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5AF62A1FB8ADBF1F5775BDB430B825AA"
+               BlueprintIdentifier = "9B589EF10F6212D3CE43DE75F77EC921"
                BuildableName = "Pods_CoreMotionAnalyzer.framework"
                BlueprintName = "Pods-CoreMotionAnalyzer"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5AF62A1FB8ADBF1F5775BDB430B825AA"
+            BlueprintIdentifier = "9B589EF10F6212D3CE43DE75F77EC921"
             BuildableName = "Pods_CoreMotionAnalyzer.framework"
             BlueprintName = "Pods-CoreMotionAnalyzer"
             ReferencedContainer = "container:Pods.xcodeproj">

@@ -11,7 +11,6 @@
 #import "KSYGraphViewController.h"
 #import "KSYSettingsViewController.h"
 #import "KSYMotionDataSource.h"
-#import "KSYMotionData.h"
 #import "KSYMotionDataTableViewCell.h"
 #import "KSYMotionTimestampHeaderView.h"
 #import "KSYUserSettings.h"
@@ -25,14 +24,9 @@ static CGFloat const kEstimatedRowHeight = 180.0;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic, strong) CMMotionManager *motionManager;
-@property (nonatomic, copy) NSArray <KSYMotionData *> *motionData;
+@property (nonatomic, copy) NSArray <CMDeviceMotion *> *motionData;
 @property (nonatomic, strong) KSYMotionDataSource *motionDataSource;
-
-
 @property (nonatomic, strong) KSYUserSettings *settings;
-@property (nonatomic, assign, getter=isUserAccelerationOn) BOOL userAccelerationOn;
-@property (nonatomic, assign, getter=isGravityOn) BOOL gravityOn;
-@property (nonatomic, assign, getter=isRotationOn) BOOL rotationOn;
 
 @end
 
@@ -64,12 +58,9 @@ forHeaderFooterViewReuseIdentifier:NSStringFromClass([KSYMotionTimestampHeaderVi
         KSYGraphViewController *graphViewController = segue.destinationViewController;
         NSMutableArray *selectedData = [NSMutableArray array];
         for (NSIndexPath *indexPath in self.tableView.indexPathsForSelectedRows) {
-            KSYMotionData *motionData = [self.motionDataSource dataForIndexPath:indexPath];
+            CMDeviceMotion *motionData = [self.motionDataSource dataForIndexPath:indexPath];
             [selectedData addObject:motionData];
         }
-        [selectedData sortUsingComparator:^NSComparisonResult(KSYMotionData *motionDataA, KSYMotionData *motionDataB) {
-            return [motionDataA.timestamp compare:motionDataB.timestamp];
-        }];
         graphViewController.data = [selectedData copy];
     }
 }
@@ -77,11 +68,10 @@ forHeaderFooterViewReuseIdentifier:NSStringFromClass([KSYMotionTimestampHeaderVi
 - (CMDeviceMotionHandler)handleDeviceMotionUpdates {
     typeof(self) __weak weakSelf = self;
     return ^(CMDeviceMotion *motion, NSError *error) {
-        KSYMotionData *motionData = [KSYMotionData motionDataWithDeviceMotion:motion andTimestamp:[NSDate date]];
         NSMutableArray *tempMotionData = [self.motionData mutableCopy];
-        [tempMotionData addObject:motionData];
+        [tempMotionData addObject:motion];
         weakSelf.motionData = [tempMotionData copy];
-        [weakSelf.motionDataSource appendMotionData:motionData];
+        [weakSelf.motionDataSource appendMotionData:motion];
         [weakSelf.tableView reloadData];
     };
 }
@@ -146,8 +136,8 @@ forHeaderFooterViewReuseIdentifier:NSStringFromClass([KSYMotionTimestampHeaderVi
     KSYMotionDataTableViewCell *cell = [tableView
                                         dequeueReusableCellWithIdentifier:NSStringFromClass([KSYMotionDataTableViewCell class])
                                         forIndexPath:indexPath];
-    KSYMotionData *motionData = [self.motionDataSource dataForIndexPath:indexPath];
-    [cell configureWithMotionData:motionData];
+    CMDeviceMotion *motionData = [self.motionDataSource dataForIndexPath:indexPath];
+    [cell configureWithDeviceMotion:motionData andUserSettings:self.settings];
     return cell;
 }
 
@@ -176,6 +166,7 @@ forHeaderFooterViewReuseIdentifier:NSStringFromClass([KSYMotionTimestampHeaderVi
 - (void)settingsViewController:(KSYSettingsViewController *)settingsViewController userDidTapDoneWithSettings:(KSYUserSettings *)userSettings {
     [self dismissViewControllerAnimated:YES completion:nil];
     self.settings = userSettings;
+    [self.tableView reloadData];
 }
 
 @end

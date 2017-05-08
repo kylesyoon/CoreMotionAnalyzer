@@ -8,7 +8,6 @@
 
 #import "KSYGraphViewController.h"
 #import <CorePlot/CorePlot.h>
-#import "KSYMotionData.h"
 
 @interface KSYGraphViewController () <CPTPlotDelegate, CPTPlotDataSource>
 @property (weak, nonatomic) IBOutlet UIView *graphArea;
@@ -73,12 +72,12 @@
     [self.graph applyTheme:[CPTTheme themeNamed:kCPTPlainWhiteTheme]];
     self.hostView.hostedGraph = self.graph;
     // 2. Set graph title.
-    KSYMotionData *firstMotionData = self.data.firstObject;
+//    KSYMotionData *firstMotionData = self.data.firstObject;
     CGFloat startTime = 0.0;
-    KSYMotionData *lastMotionData = self.data.lastObject;
-    CGFloat endTime = [lastMotionData.timestamp timeIntervalSinceDate:firstMotionData.timestamp];
-    NSString *title = [NSString stringWithFormat:@"Motion Data for Time Frame %.2f - %.2f", startTime, endTime];
-    self.graph.title = title;
+//    KSYMotionData *lastMotionData = self.data.lastObject;
+//    CGFloat endTime = [lastMotionData.timestamp timeIntervalSinceDate:firstMotionData.timestamp];
+//    NSString *title = [NSString stringWithFormat:@"Motion Data for Time Frame %.2f - %.2f", startTime, endTime];
+//    self.graph.title = title;
     // 3. Create and set text style.
     CPTMutableTextStyle *titleStyle = [CPTMutableTextStyle textStyle];
     titleStyle.color = [CPTColor blackColor];

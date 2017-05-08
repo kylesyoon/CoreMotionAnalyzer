@@ -17,7 +17,6 @@
 		5AF0F22E1EBBBA790045B6F9 /* KSYMotionDataTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF0F2281EBBBA790045B6F9 /* KSYMotionDataTableViewCell.m */; };
 		5AF0F22F1EBBBA790045B6F9 /* KSYMotionDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AF0F2291EBBBA790045B6F9 /* KSYMotionDataTableViewCell.xib */; };
 		5AF0F2301EBBBA790045B6F9 /* KSYMotionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF0F22B1EBBBA790045B6F9 /* KSYMotionViewController.m */; };
-		5AF0F2361EBBBB680045B6F9 /* KSYMotionData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF0F2351EBBBB680045B6F9 /* KSYMotionData.m */; };
 		5AF0F23C1EBBBBAB0045B6F9 /* KSYSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF0F23B1EBBBBAB0045B6F9 /* KSYSettingsViewController.m */; };
 		5AF0F23F1EBBBBB80045B6F9 /* KSYGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF0F23E1EBBBBB80045B6F9 /* KSYGraphViewController.m */; };
 		5AF0F24A1EBBBCD70045B6F9 /* KSYMotionTimestampHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF0F2491EBBBCD70045B6F9 /* KSYMotionTimestampHeaderView.m */; };
@@ -57,8 +56,6 @@
 		5AF0F2291EBBBA790045B6F9 /* KSYMotionDataTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KSYMotionDataTableViewCell.xib; sourceTree = "<group>"; };
 		5AF0F22A1EBBBA790045B6F9 /* KSYMotionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSYMotionViewController.h; sourceTree = "<group>"; };
 		5AF0F22B1EBBBA790045B6F9 /* KSYMotionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSYMotionViewController.m; sourceTree = "<group>"; };
-		5AF0F2341EBBBB680045B6F9 /* KSYMotionData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSYMotionData.h; sourceTree = "<group>"; };
-		5AF0F2351EBBBB680045B6F9 /* KSYMotionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSYMotionData.m; sourceTree = "<group>"; };
 		5AF0F23A1EBBBBAB0045B6F9 /* KSYSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSYSettingsViewController.h; path = Settings/KSYSettingsViewController.h; sourceTree = "<group>"; };
 		5AF0F23B1EBBBBAB0045B6F9 /* KSYSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSYSettingsViewController.m; path = Settings/KSYSettingsViewController.m; sourceTree = "<group>"; };
 		5AF0F23D1EBBBBB80045B6F9 /* KSYGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSYGraphViewController.h; path = Graph/KSYGraphViewController.h; sourceTree = "<group>"; };
@@ -177,8 +174,6 @@
 		5AF0F2331EBBBB380045B6F9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5AF0F2341EBBBB680045B6F9 /* KSYMotionData.h */,
-				5AF0F2351EBBBB680045B6F9 /* KSYMotionData.m */,
 				5AF0F2581EC0C60B0045B6F9 /* KSYUserSettings.h */,
 				5AF0F2591EC0C60B0045B6F9 /* KSYUserSettings.m */,
 			);
@@ -382,7 +377,6 @@
 			files = (
 				5AF0F2301EBBBA790045B6F9 /* KSYMotionViewController.m in Sources */,
 				5AF0F24A1EBBBCD70045B6F9 /* KSYMotionTimestampHeaderView.m in Sources */,
-				5AF0F2361EBBBB680045B6F9 /* KSYMotionData.m in Sources */,
 				5AF0F22D1EBBBA790045B6F9 /* KSYMotionDataSource.m in Sources */,
 				5AF0F23C1EBBBBAB0045B6F9 /* KSYSettingsViewController.m in Sources */,
 				5AF0F25A1EC0C60B0045B6F9 /* KSYUserSettings.m in Sources */,

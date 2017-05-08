@@ -8,11 +8,11 @@
 
 #import "KSYMotionDataSource.h"
 #import <UIKit/UIKit.h>
-#import "KSYMotionData.h"
+#import <CoreMotion/CMDeviceMotion.h>
 
 @interface KSYMotionDataSource ()
 
-@property (nonatomic, copy) NSArray <KSYMotionData *> *allMotionData;
+@property (nonatomic, copy) NSArray <CMDeviceMotion *> *allMotionData;
 
 @end
 
@@ -26,20 +26,19 @@
     return self;
 }
 
-- (void)appendMotionData:(KSYMotionData *)motionData {
+- (void)appendMotionData:(CMDeviceMotion *)motionData {
     NSMutableArray *tempMotionData = [self.allMotionData mutableCopy];
     [tempMotionData addObject:motionData];
     self.allMotionData = [tempMotionData copy];
 }
 
-- (KSYMotionData *)dataForIndexPath:(NSIndexPath *)indexPath {
+- (CMDeviceMotion *)dataForIndexPath:(NSIndexPath *)indexPath {
     return indexPath.section < self.allMotionData.count ? self.allMotionData[indexPath.section] : nil;
 }
 
 - (NSString *)titleForHeaderForSection:(NSInteger)section {
-    NSDate *firstTimestamp = ((KSYMotionData *)self.allMotionData.firstObject).timestamp;
-    NSDate *timeStampForSection = ((KSYMotionData *)self.allMotionData[section]).timestamp;
-    return [NSString stringWithFormat:@"%f", [timeStampForSection timeIntervalSinceDate:firstTimestamp]];
+    NSTimeInterval timestampForSection = ((CMDeviceMotion *)self.allMotionData[section]).timestamp;
+    return [NSString stringWithFormat:@"%lf", timestampForSection];
 }
 
 - (NSInteger)numberOfSections {

@@ -8,9 +8,9 @@
 
 #import "KSYMotionDataTableViewCell.h"
 #import <CoreMotion/CoreMotion.h>
-#import "KSYMotionData.h"
+#import "KSYUserSettings.h"
 
-static NSString * const kXYZFormat = @"X: %.3f  Y: %.3f  Z: %.3f";
+static NSString * const kXYZFormat = @"X: %.3lf  Y: %.3lf  Z: %.3lf";
 
 @interface KSYMotionDataTableViewCell ()
 
@@ -25,13 +25,19 @@ static NSString * const kXYZFormat = @"X: %.3f  Y: %.3f  Z: %.3f";
 
 @implementation KSYMotionDataTableViewCell
 
-- (void)configureWithMotionData:(KSYMotionData *)motionData {
-    CMDeviceMotion *deviceMotion = motionData.deviceMotion;
-    NSString *accString = [NSString stringWithFormat:kXYZFormat,
-                           deviceMotion.userAcceleration.x,
-                           deviceMotion.userAcceleration.y,
-                           deviceMotion.userAcceleration.z];
-    self.accelerationLabel.text = accString;
+- (void)configureWithDeviceMotion:(CMDeviceMotion *)deviceMotion andUserSettings:(KSYUserSettings *)userSettings {
+    if (userSettings.isUserAccelerationOn) {
+        NSString *accString = [NSString stringWithFormat:kXYZFormat,
+                               deviceMotion.userAcceleration.x,
+                               deviceMotion.userAcceleration.y,
+                               deviceMotion.userAcceleration.z];
+        self.accelerationLabel.text = accString;
+        self.accelerationStackView.hidden = NO;
+    }
+    else {
+        self.accelerationStackView.hidden = YES;
+    }
+    
     NSString *gravString = [NSString stringWithFormat:kXYZFormat,
                             deviceMotion.gravity.x,
                             deviceMotion.gravity.y,

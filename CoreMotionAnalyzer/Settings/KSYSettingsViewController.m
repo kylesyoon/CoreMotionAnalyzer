@@ -29,23 +29,18 @@
     return settingsViewController;
 }
 
-- (IBAction)didToggleSegmentedControl:(UISegmentedControl *)segmentedControl {
-    if (segmentedControl == self.userAccelerationSegmentedControl) {
-        self.userSettings.userAccelerationOn = segmentedControl.selectedSegmentIndex == 0;
-    }
-    else if (segmentedControl == self.gravitySegmentedControl) {
-        self.userSettings.userAccelerationOn = segmentedControl.selectedSegmentIndex == 0;
-    }
-    else if (segmentedControl == self.rotationSegmentedControl) {
-        self.userSettings.rotationOn = segmentedControl.selectedSegmentIndex == 0;
-    }
-    else {
-        NSAssert(NO, @"Unexpected segmented control toggle");
-    }
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.userAccelerationSegmentedControl.selectedSegmentIndex = self.userSettings.isUserAccelerationOn ? 0 : 1;
+    self.gravitySegmentedControl.selectedSegmentIndex = self.userSettings.isGravityOn ? 0 : 1;
+    self.rotationSegmentedControl.selectedSegmentIndex = self.userSettings.isRotationOn ? 0 : 1;
 }
 
 - (IBAction)didTapDone:(id)sender {
-    [self.delegate settingsViewController:self userDidTapDoneWithSettings:self.userSettings];
+    KSYUserSettings *newUserSettings = [KSYUserSettings userSettingsWithAccelerationOn:self.userAccelerationSegmentedControl.selectedSegmentIndex == 0
+                                                                             gravityOn:self.gravitySegmentedControl.selectedSegmentIndex == 0
+                                                                            rotationOn:self.rotationSegmentedControl.selectedSegmentIndex == 0];
+    [self.delegate settingsViewController:self userDidTapDoneWithSettings:newUserSettings];
 }
 
 @end

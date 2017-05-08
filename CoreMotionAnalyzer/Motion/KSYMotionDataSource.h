@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@class KSYMotionData;
+@class CMDeviceMotion;
 
 @interface KSYMotionDataSource : NSObject
 
-- (void)appendMotionData:(KSYMotionData *)motionData;
+- (void)appendMotionData:(CMDeviceMotion *)motionData;
 
-- (KSYMotionData *)dataForIndexPath:(NSIndexPath *)indexPath;
+- (CMDeviceMotion *)dataForIndexPath:(NSIndexPath *)indexPath;
 
 - (NSString *)titleForHeaderForSection:(NSInteger)section;
 

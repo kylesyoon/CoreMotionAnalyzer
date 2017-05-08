@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class KSYMotionData;
+@class CMDeviceMotion;
+@class KSYUserSettings;
 
 @interface KSYMotionDataTableViewCell : UITableViewCell
 
-- (void)configureWithMotionData:(KSYMotionData *)motionData;
+- (void)configureWithDeviceMotion:(CMDeviceMotion *)deviceMotion andUserSettings:(KSYUserSettings *)userSettings;
 
 @end

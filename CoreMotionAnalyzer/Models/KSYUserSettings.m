@@ -24,9 +24,9 @@
     self = [super init];
     
     if (self) {
-        _userAccelerationOn = YES;
-        _gravityOn = YES;
-        _rotationOn = YES;
+        self.userAccelerationOn = YES;
+        self.gravityOn = YES;
+        self.rotationOn = YES;
     }
     
     return self;

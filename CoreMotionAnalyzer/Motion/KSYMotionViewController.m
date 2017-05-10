@@ -61,7 +61,7 @@ forHeaderFooterViewReuseIdentifier:NSStringFromClass([KSYMotionTimestampHeaderVi
             CMDeviceMotion *motionData = [self.motionDataSource dataForIndexPath:indexPath];
             [selectedData addObject:motionData];
         }
-        graphViewController.data = [selectedData copy];
+//        graphViewController.data = [selectedData copy];
     }
 }
 

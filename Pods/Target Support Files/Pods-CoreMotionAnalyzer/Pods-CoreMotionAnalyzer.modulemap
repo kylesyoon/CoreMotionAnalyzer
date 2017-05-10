@@ -1,6 +1,0 @@
-framework module Pods_CoreMotionAnalyzer {
-  umbrella header "Pods-CoreMotionAnalyzer-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -258,74 +258,8 @@
                     <view key="view" contentMode="scaleToFill" id="NKU-6h-KDz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oRM-RM-Pn6">
-                                <rect key="frame" x="0.0" y="64" width="375" height="563"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FhH-Kd-ZLi">
-                                <rect key="frame" x="0.0" y="627" width="375" height="40"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QOd-e5-0JR">
-                                        <rect key="frame" x="8" y="6" width="101" height="27"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <state key="normal" title="User Acceleration">
-                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="pressedUserAccel:" destination="Ofl-aR-j5G" eventType="touchUpInside" id="dID-LW-xCB"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A2B-0v-y8g">
-                                        <rect key="frame" x="290" y="7" width="77" height="27"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <state key="normal" title="Rotation Rate">
-                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="pressedRotRate:" destination="Ofl-aR-j5G" eventType="touchUpInside" id="0Gw-AC-Un1"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EBT-UO-88r">
-                                        <rect key="frame" x="167" y="7" width="41" height="27"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <state key="normal" title="Gravity">
-                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="pressedUserGravity:" destination="Ofl-aR-j5G" eventType="touchUpInside" id="aJT-eX-lrJ"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="0Ta-nX-L5z"/>
-                                    <constraint firstItem="QOd-e5-0JR" firstAttribute="leading" secondItem="FhH-Kd-ZLi" secondAttribute="leading" constant="8" id="8uQ-OR-gOi"/>
-                                    <constraint firstAttribute="centerY" secondItem="A2B-0v-y8g" secondAttribute="centerY" id="Cyw-9e-1JX"/>
-                                    <constraint firstAttribute="centerX" secondItem="EBT-UO-88r" secondAttribute="centerX" id="X9A-4A-bUV"/>
-                                    <constraint firstAttribute="centerY" secondItem="EBT-UO-88r" secondAttribute="centerY" id="hq8-4Q-IfB"/>
-                                    <constraint firstAttribute="trailing" secondItem="A2B-0v-y8g" secondAttribute="trailing" constant="8" id="q6C-h1-g6u"/>
-                                    <constraint firstAttribute="centerY" secondItem="QOd-e5-0JR" secondAttribute="centerY" id="vv6-gc-NMP"/>
-                                </constraints>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="FhH-Kd-ZLi" secondAttribute="trailing" constant="-16" id="3bF-aP-IMr"/>
-                            <constraint firstItem="slE-in-eXM" firstAttribute="top" secondItem="FhH-Kd-ZLi" secondAttribute="bottom" id="72A-1E-P7F"/>
-                            <constraint firstItem="oRM-RM-Pn6" firstAttribute="leading" secondItem="NKU-6h-KDz" secondAttribute="leadingMargin" constant="-16" id="NB5-mB-nOU"/>
-                            <constraint firstItem="oRM-RM-Pn6" firstAttribute="top" secondItem="fBY-Jt-B7J" secondAttribute="bottom" id="NsA-pA-S39"/>
-                            <constraint firstItem="FhH-Kd-ZLi" firstAttribute="top" secondItem="oRM-RM-Pn6" secondAttribute="bottom" id="j0X-a1-qsE"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="oRM-RM-Pn6" secondAttribute="trailing" constant="-16" id="nqo-0O-PHv"/>
-                            <constraint firstItem="FhH-Kd-ZLi" firstAttribute="leading" secondItem="NKU-6h-KDz" secondAttribute="leadingMargin" constant="-16" id="uch-Hl-QcX"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="graphArea" destination="oRM-RM-Pn6" id="71O-oH-z6f"/>
-                        <outlet property="gravityButton" destination="EBT-UO-88r" id="H0Q-h1-OgD"/>
-                        <outlet property="rotRateButton" destination="A2B-0v-y8g" id="YhQ-8U-Vtq"/>
-                        <outlet property="userAccelerationButton" destination="QOd-e5-0JR" id="zM3-Qu-iLm"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b06-yo-HFu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

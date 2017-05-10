@@ -37,8 +37,10 @@
 }
 
 - (NSString *)titleForHeaderForSection:(NSInteger)section {
-    NSTimeInterval timestampForSection = ((CMDeviceMotion *)self.allMotionData[section]).timestamp;
-    return [NSString stringWithFormat:@"%lf", timestampForSection];
+    NSTimeInterval firstTimestamp = self.allMotionData.firstObject.timestamp;
+    NSTimeInterval timestampForSection = self.allMotionData[section].timestamp;
+    NSTimeInterval relativeTimestamp = timestampForSection - firstTimestamp;
+    return [NSString stringWithFormat:@"%.2lf", relativeTimestamp];
 }
 
 - (NSInteger)numberOfSections {

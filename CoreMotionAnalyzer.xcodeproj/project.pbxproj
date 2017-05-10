@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		51623B2F1EC2B7FE00C1F4D0 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51623B2E1EC2B7FE00C1F4D0 /* Charts.framework */; };
 		51700B1A1ACDE2FC0027AD9D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 51700B191ACDE2FC0027AD9D /* main.m */; };
 		51700B1D1ACDE2FC0027AD9D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 51700B1C1ACDE2FC0027AD9D /* AppDelegate.m */; };
 		51700B231ACDE2FC0027AD9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51700B211ACDE2FC0027AD9D /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		51623B2E1EC2B7FE00C1F4D0 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
 		51700B141ACDE2FC0027AD9D /* CoreMotionAnalyzer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreMotionAnalyzer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51700B181ACDE2FC0027AD9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51700B191ACDE2FC0027AD9D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51623B2F1EC2B7FE00C1F4D0 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +85,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		51623B2D1EC2B7FE00C1F4D0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				51623B2E1EC2B7FE00C1F4D0 /* Charts.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		51700B0B1ACDE2FC0027AD9D = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +100,7 @@
 				51700B301ACDE2FC0027AD9D /* CoreMotionAnalyzerTests */,
 				51700B151ACDE2FC0027AD9D /* Products */,
 				51700B171ACDE2FC0027AD9D /* Supporting Files */,
+				51623B2D1EC2B7FE00C1F4D0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -206,6 +218,7 @@
 				51700B101ACDE2FC0027AD9D /* Sources */,
 				51700B111ACDE2FC0027AD9D /* Frameworks */,
 				51700B121ACDE2FC0027AD9D /* Resources */,
+				51623B301EC2B81100C1F4D0 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -294,6 +307,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		51623B301EC2B81100C1F4D0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Charts.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		51700B101ACDE2FC0027AD9D /* Sources */ = {
@@ -434,6 +464,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = EG77NM7886;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = CoreMotionAnalyzer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -449,6 +483,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = EG77NM7886;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = CoreMotionAnalyzer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
